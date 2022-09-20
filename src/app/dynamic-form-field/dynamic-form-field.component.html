@@ -1,43 +1,16 @@
 <div class="container" [formGroup]="form">
-  <div [ngSwitch]="formItem?.type">
-    <div *ngSwitchCase="'text'">
-      <label for="{{ formItem.id }}">{{ formItem.label }}</label>
+  <div >
+    <div >
+      <div [ngClass]="fieldType=='checkbox' && 'checkboxClass'">
+        <label for="{{ formItem.label }}">{{ formItem.label }}</label>
       <input
-        type="text"
-        [formControlName]="formItem.id"
+        [type]="fieldType"
+        [formControlName]="formItem.field"
         class="form-control"
-        id="formItem.id"
+        id="formItem.label"
+        [ngModel] = "fieldType=='checkbox' || fieldType=='hidden' ? formItem.label : ''"
         [required]="formItem.mandatory"
       />
-    </div>
-    <div *ngSwitchCase="'email'">
-      <label for="{{ formItem.id }}">{{ formItem.label }}</label>
-      <input
-        [type]="formItem.type"
-        [formControlName]="formItem.id"
-        class="form-control"
-        [required]="formItem.mandatory"
-      />
-    </div>
-    <div *ngSwitchCase="'hidden'">
-      <input
-        type="hidden"
-        [formControlName]="formItem.id"
-        class="form-control"
-      />
-    </div>
-    <div *ngSwitchCase="'check'">
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value=""
-          [formControlName]="formItem.id"
-          id="flexCheckDisabled"
-        />
-        <label class="form-check-label" for="flexCheckDisabled">
-          {{ formItem.label }}
-        </label>
       </div>
     </div>
   </div>

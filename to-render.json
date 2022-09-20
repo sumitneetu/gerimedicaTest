@@ -1,31 +1,29 @@
 [
     {
-
         "field": "name",
         "label": "Name",
         "type": "text",
-        "hidden": false,
+        "hidden": "false",
         "mandatory": true
     },
     {
         "field": "email",
         "label": "Email",
         "type": "text",
-        "hidden": false,
+        "hidden": "false",
         "mandatory": true
     },
     {
         "field": "confirm",
         "label": "Checkbox with confirmation",
         "type": "check",
-        "hidden": false,
-        "mandatory": false
+        "hidden": "false"
     },
     {
         "field": "hiddenField",
         "label": "",
-        "type": "hidden",
-        "hidden": true,
+        "type": "text",
+        "hidden": "true",
         "mandatory": false
     }
 ]

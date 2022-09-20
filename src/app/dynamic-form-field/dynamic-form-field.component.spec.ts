@@ -6,12 +6,7 @@ describe('DynamicFormFieldComponent', () => {
   let component: DynamicFormFieldComponent;
   let fixture: ComponentFixture<DynamicFormFieldComponent>;
   //let formItems: GerimedicaFormFieldModel[];
-  let formItems = GermedicaFieldJson?.map((val, key) => {
-      return {
-        ...val,
-        id: val.field,
-      };
-    });
+  let formItems = GermedicaFieldJson
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DynamicFormFieldComponent],
@@ -26,13 +21,14 @@ describe('DynamicFormFieldComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DynamicFormFieldComponent);
     component = fixture.componentInstance;
-
+    console.log(formItems)
     component.form = new FormGroup({
       name: new FormControl(null, [Validators.required]),
       email: new FormControl(null, [Validators.required, Validators.email]),
       confirm: new FormControl(null),
       hiddenField : new FormControl(null),
     })
+    component.formItem = formItems[0]
     fixture.detectChanges();
   });
 

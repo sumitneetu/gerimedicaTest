@@ -17,18 +17,18 @@
               class="errors required"
               *ngIf="
                 isSubmited &&
-                GerimedicaForm.controls[formItem.id].errors?.required
+                GerimedicaForm.controls[formItem.field].errors?.required
               "
             >
-              Please enter {{ formItem.id }}
+              Please enter {{ formItem.field }}
             </p>
             <p
               class="errors required"
               *ngIf="
-                isSubmited && GerimedicaForm.controls[formItem.id].errors?.email
+                isSubmited && GerimedicaForm.controls[formItem.field].errors?.email
               "
             >
-              Please enter valid {{ formItem.id }}
+              Please enter valid {{ formItem.field }}
             </p>
           </app-dynamic-form-field>
         </div>

@@ -17,12 +17,7 @@ export class GerimedicaFormComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.GerimedicaForm = this.fb.group({});
-    this.formFields = this.JsonData?.map((val, key) => {
-      return {
-        ...val,
-        id: val.field,
-      };
-    });
+    this.formFields = this.JsonData
     this.formFields?.forEach((formItem) => {
       let validateArr = []
       if (formItem.field == "email") {
@@ -34,7 +29,7 @@ export class GerimedicaFormComponent implements OnInit {
           validateArr=[]
       }
       this.GerimedicaForm.addControl(
-          formItem.id,
+          formItem.field,
           this.fb.control(null, validateArr)
         );
 
