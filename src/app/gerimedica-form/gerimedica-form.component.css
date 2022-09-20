@@ -1,0 +1,15 @@
+
+
+.mybtn button {
+  width: 100%;
+}
+
+.errors{
+  color: red;
+}
+
+.header {
+  display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

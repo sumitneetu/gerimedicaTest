@@ -1,0 +1,45 @@
+<div class="container" [formGroup]="form">
+  <div [ngSwitch]="formItem?.type">
+    <div *ngSwitchCase="'text'">
+      <label for="{{ formItem.id }}">{{ formItem.label }}</label>
+      <input
+        type="text"
+        [formControlName]="formItem.id"
+        class="form-control"
+        id="formItem.id"
+        [required]="formItem.mandatory"
+      />
+    </div>
+    <div *ngSwitchCase="'email'">
+      <label for="{{ formItem.id }}">{{ formItem.label }}</label>
+      <input
+        [type]="formItem.type"
+        [formControlName]="formItem.id"
+        class="form-control"
+        [required]="formItem.mandatory"
+      />
+    </div>
+    <div *ngSwitchCase="'hidden'">
+      <input
+        type="hidden"
+        [formControlName]="formItem.id"
+        class="form-control"
+      />
+    </div>
+    <div *ngSwitchCase="'check'">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          [formControlName]="formItem.id"
+          id="flexCheckDisabled"
+        />
+        <label class="form-check-label" for="flexCheckDisabled">
+          {{ formItem.label }}
+        </label>
+      </div>
+    </div>
+  </div>
+  <ng-content></ng-content>
+</div>

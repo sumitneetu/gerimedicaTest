@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-xs-12">
+      <div class="header">
+        <h4>Gerimedica Form</h4>
+      </div>
+      <form
+        class="form-group"
+        [formGroup]="GerimedicaForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="form-group" *ngFor="let formItem of formFields">
+          <app-dynamic-form-field
+            [formItem]="formItem"
+          >
+            <p
+              class="errors required"
+              *ngIf="
+                isSubmited &&
+                GerimedicaForm.controls[formItem.id].errors?.required
+              "
+            >
+              Please enter {{ formItem.id }}
+            </p>
+            <p
+              class="errors required"
+              *ngIf="
+                isSubmited && GerimedicaForm.controls[formItem.id].errors?.email
+              "
+            >
+              Please enter valid {{ formItem.id }}
+            </p>
+          </app-dynamic-form-field>
+        </div>
+        <div class="container mybtn">
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
